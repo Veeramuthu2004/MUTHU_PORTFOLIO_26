@@ -23,9 +23,9 @@
   align-items: center;
   gap: 12px;
   padding: 8px 12px;
-  background: rgba(7, 10, 18, 0.55);
+  background: var(--nav-bg, rgba(7, 10, 18, 0.55));
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.04);
+  border: 1px solid var(--border-strong);
 }
 
 .nav-logo { font-weight: 800; color: var(--text-high); text-decoration: none; }
@@ -49,7 +49,7 @@
   width: 360px;
   height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,175,55,0.26), rgba(212,175,55,0));
+  background: radial-gradient(circle, rgba(74,163,255,0.26), rgba(74,163,255,0));
 }
 
 .ambient-two {
@@ -58,7 +58,7 @@
   width: 460px;
   height: 460px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(46,196,182,0.18), rgba(46,196,182,0));
+  background: radial-gradient(circle, rgba(124,92,255,0.18), rgba(124,92,255,0));
 }
 
 .hero {
@@ -91,7 +91,7 @@
 .glass-panel,
 .content-section,
 .contact-panel {
-  background: linear-gradient(180deg, rgba(15, 18, 27, 0.92), rgba(8, 10, 16, 0.88));
+  background: var(--panel);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-elevated);
@@ -191,8 +191,8 @@
 
 .primary-action {
   color: #071018;
-  background: linear-gradient(135deg, var(--accent), rgba(212,175,55,0.94));
-  box-shadow: 0 20px 60px rgba(9, 10, 12, 0.45), 0 10px 30px rgba(212,175,55,0.12);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 20px 60px rgba(9, 10, 12, 0.45), 0 10px 30px rgba(74,163,255,0.12);
 }
 
 .secondary-action,
@@ -241,6 +241,42 @@
   flex-wrap: wrap;
 }
 
+/* Accessibility helpers */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  background: #081018;
+  color: var(--accent);
+  padding: 8px 12px;
+  border-radius: 6px;
+  z-index: 60;
+  transform: translateY(-120%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid rgba(124,92,255,0.6);
+}
+
+.project-card:focus {
+  outline: 3px solid rgba(124,92,255,0.18);
+  box-shadow: 0 6px 20px rgba(124,92,255,0.08);
+}
+.modal-close:focus,
+.filter-btn:focus {
+  outline: 3px solid rgba(74,163,255,0.18);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 80;
+  background: rgba(3,6,10,0.6);
+}
+.project-modal { max-width: 760px; width: calc(100% - 40px); }
+
 .status-pill,
 .status-date {
   display: inline-flex;
@@ -266,7 +302,7 @@
   border-radius: 20px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, rgba(212,175,55,0.98), rgba(46,196,182,0.92));
+  background: linear-gradient(135deg, rgba(74,163,255,0.98), rgba(124,92,255,0.92));
   color: #081018;
   font-size: 1.1rem;
   font-weight: 900;

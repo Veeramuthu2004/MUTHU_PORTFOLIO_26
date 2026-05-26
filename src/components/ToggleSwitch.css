@@ -1,0 +1,54 @@
+.ts-toggle {
+  position: relative;
+  display: inline-block;
+  border-radius: 999px;
+  background: var(--ts-track-bg, var(--panel));
+  border: 1px solid var(--border-strong);
+  overflow: hidden;
+  transition: background-color 220ms ease, box-shadow 220ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.ts-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(58,144,255,0.12);
+}
+.ts-toggle.ts-disabled { opacity: 0.6; pointer-events: none; }
+
+/* size presets (set width/height and thumb sizes via CSS variables) */
+.ts-sm { --ts-track-w: 40px; --ts-track-h: 24px; --ts-thumb-w: 16px; --ts-padding: 4px; }
+.ts-md { --ts-track-w: 48px; --ts-track-h: 28px; --ts-thumb-w: 20px; --ts-padding: 4px; }
+.ts-lg { --ts-track-w: 56px; --ts-track-h: 32px; --ts-thumb-w: 24px; --ts-padding: 6px; }
+
+.ts-toggle { width: var(--ts-track-w); height: var(--ts-track-h); padding: var(--ts-padding); box-sizing: border-box; }
+
+/* track colors */
+.ts-toggle { background: var(--ts-track-off, #e6e9ee); }
+.ts-toggle.ts-checked { background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 8px 26px rgba(58,144,255,0.12); }
+
+/* thumb */
+.ts-thumb {
+  position: absolute;
+  top: 50%;
+  left: var(--ts-padding);
+  width: var(--ts-thumb-w);
+  height: var(--ts-thumb-w);
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translateY(-50%);
+  transition: left 220ms cubic-bezier(.2,.9,.3,1), transform 180ms ease, box-shadow 220ms ease;
+  box-shadow: 0 6px 18px rgba(6,10,18,0.12);
+}
+.ts-toggle.ts-checked .ts-thumb { left: calc(var(--ts-track-w) - var(--ts-thumb-w) - var(--ts-padding)); }
+
+/* inner icon */
+.ts-thumb svg { display: block; width: 60%; height: 60%; margin: auto; }
+
+/* hover / active states */
+.ts-toggle:not(.ts-disabled):hover { filter: brightness(0.98); }
+.ts-toggle:not(.ts-disabled):active .ts-thumb { transform: translateY(-50%) scale(0.98); }
+
+/* responsive behavior: scale down slightly on very small screens */
+@media (max-width: 360px) {
+  .ts-sm { --ts-track-w: 36px; --ts-track-h: 20px; --ts-thumb-w: 14px; }
+  .ts-md { --ts-track-w: 44px; --ts-track-h: 26px; --ts-thumb-w: 18px; }
+}

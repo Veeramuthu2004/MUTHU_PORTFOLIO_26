@@ -22,11 +22,11 @@ To set your Formspree endpoint, copy `.env` and replace the placeholder:
 VITE_FORMSPREE_ENDPOINT="https://formspree.io/f/your-form-id"
 ```
 
----
-
 ## About this template
 
 This project began from a React + Vite starter. The following notes summarize the starter template and how to adapt it.
+
+### React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
