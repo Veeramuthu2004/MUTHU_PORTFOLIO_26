@@ -774,10 +774,6 @@
     width: 100%;
     justify-content: center;
     min-height: 44px;
-  }
-
-  .nav-links a,
-  .nav-resume {
     text-align: center;
     min-width: 0;
     display: flex;
@@ -843,7 +839,8 @@
     width: 60px;
     height: 60px;
     border-radius: 18px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
    
   }
 
@@ -1092,6 +1089,8 @@
     width: 54px;
     height: 54px;
     border-radius: 16px;
+    font-size: 0.84rem;
+    letter-spacing: 0.03em;
   }
 
   .modal-overlay {
