@@ -12,8 +12,10 @@ import {
   Layers3,
   Mail,
   MapPin,
+  Menu,
   Rocket,
   Sparkles,
+  X,
   Sun,
   Moon,
 } from "lucide-react";
@@ -168,6 +170,7 @@ function App() {
   const [filter, setFilter] = useState("All");
   const tags = ["All", ...Array.from(new Set(projects.map((p) => p.tag)))];
   const [selectedProject, setSelectedProject] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const filteredProjects =
     filter === "All" ? projects : projects.filter((p) => p.tag === filter);
   const [formStatus, setFormStatus] = useState(null);
@@ -219,6 +222,28 @@ function App() {
 
   const modalRef = useRef(null);
   const lastActiveElement = useRef(null);
+
+  useEffect(() => {
+    function closeOnEscape(e) {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 780) {
+        setMobileMenuOpen(false);
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     function onKey(e) {
@@ -298,16 +323,39 @@ function App() {
             <a className="nav-logo" href="#top">
               {name}
             </a>
-            <div className="nav-links">
-              <a href="#about">About</a>
-              <a href="#projects">Projects</a>
-              <a href="#skills">Skills</a>
-              <a href="#contact">Contact</a>
+            <button
+              className="nav-toggle"
+              type="button"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="site-navigation-links"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMobileMenuOpen((open) => !open)}
+            >
+              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              <span>{mobileMenuOpen ? "Close" : "Menu"}</span>
+            </button>
+            <div
+              id="site-navigation-links"
+              className={`nav-links ${mobileMenuOpen ? "open" : ""}`}
+            >
+              <a href="#about" onClick={() => setMobileMenuOpen(false)}>
+                About
+              </a>
+              <a href="#projects" onClick={() => setMobileMenuOpen(false)}>
+                Projects
+              </a>
+              <a href="#skills" onClick={() => setMobileMenuOpen(false)}>
+                Skills
+              </a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                Contact
+              </a>
               <a
                 className="nav-resume"
                 href={`${import.meta.env.BASE_URL}resume.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 Resume
               </a>
