@@ -379,7 +379,6 @@
   height: 74px;
   border-radius: 20px;
   display: grid;
-  place-items: center;
   background: linear-gradient(135deg, rgba(74,163,255,0.98), rgba(89, 67, 175, 0.92));
   color: #081018;
   font-size: 1.1rem;
@@ -793,6 +792,7 @@
     height: 60px;
     border-radius: 18px;
     font-size: 0.95rem;
+   
   }
 
   .timeline-meta,
@@ -877,5 +877,188 @@
   .filter-btn:hover {
     transform: none;
     background: inherit;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-copy {
+    gap: 14px;
+  }
+
+  .intro-line {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+
+  .role-rotator,
+  .scroll-hint {
+    display: none;
+  }
+
+  .hero-actions,
+  .contact-strip {
+    gap: 8px;
+  }
+
+  .contact-strip a {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.95rem;
+  }
+
+  .hero-card {
+    gap: 14px;
+  }
+
+  .hero-card-top {
+    gap: 8px;
+  }
+
+  .status-pill,
+  .status-date {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-card-metrics {
+    gap: 10px;
+  }
+
+  .metric-card,
+  .stat-card,
+  .about-card,
+  .timeline-card,
+  .project-card,
+  .cert-card,
+  .education-card {
+    padding: 14px;
+  }
+
+  .section-heading h2,
+  .content-section h2,
+  .contact-panel h2 {
+    font-size: clamp(1.25rem, 6vw, 1.7rem);
+  }
+
+  .project-filters {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    flex: 1 1 calc(50% - 4px);
+    min-height: 44px;
+  }
+
+  .about-card h3,
+  .timeline-card h3,
+  .project-card h3,
+  .education-card h3 {
+    font-size: 1rem;
+  }
+
+  .hero-card-summary,
+  .hero-text,
+  .section-heading p,
+  .contact-panel p {
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .education-card {
+    gap: 8px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+
+  .project-modal {
+    padding: 16px;
+  }
+
+  .modal-header {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .portfolio-shell {
+    width: min(100% - 14px, 1200px);
+    padding: 14px 0 44px;
+  }
+
+  .nav-inner {
+    padding: 8px 10px;
+  }
+
+  .nav-logo {
+    font-size: 0.92rem;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .content-section,
+  .contact-panel {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2rem, 16vw, 3rem);
+    letter-spacing: -0.05em;
+  }
+
+  .primary-action,
+  .secondary-action,
+  .contact-actions a,
+  .contact-strip a,
+  .nav-links a,
+  .nav-resume {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .status-pill,
+  .status-date,
+  .badge,
+  .skill-chip,
+  .filter-btn {
+    font-size: 0.82rem;
+  }
+
+  .hero-badges {
+    gap: 6px;
+  }
+
+  .hero-card-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar-mark {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+  }
+
+  .modal-overlay {
+    padding: 8px;
+  }
+
+  .project-modal {
+    padding: 14px;
+    border-radius: 16px;
+  }
+}
+
+[data-theme="light"] body::before {
+  opacity: 0.55;
+}
+
+@media (max-width: 780px) {
+  [data-theme="light"] body::before {
+    background-size: 40px 40px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.36), transparent 84%);
   }
 }
