@@ -31,29 +31,25 @@
 
 /* Light theme overrides applied when data-theme="light" is set on <html> */
 [data-theme="light"] {
-  --bg: #f6f8fb;
+  --bg: #f5f7fb;
   --bg-soft: #ffffff;
-  --panel: rgba(255, 255, 255, 0.98);
-  --panel-strong: rgba(248, 249, 250, 1);
+  --panel: rgba(255, 255, 255, 0.96);
+  --panel-strong: rgba(248, 250, 252, 1);
   --text-high: #071018;
   --text: #24323b;
   --muted: #5b6b73;
   --border-strong: rgba(7, 10, 18, 0.06);
   --accent: #4aa3ff;
   --accent-2: #5b4bff;
-  background: radial-gradient(circle at -10% 5%, rgba(74,163,255,0.04), transparent 28%),
-    radial-gradient(circle at 110% 20%, rgba(91,75,255,0.03), transparent 22%),
-    linear-gradient(180deg, #fbfdff 0%, #f6f8fb 36%, #eef3f8 100%);
+  background:
+    radial-gradient(circle at -10% 5%, rgba(74,163,255,0.03), transparent 30%),
+    radial-gradient(circle at 110% 20%, rgba(91,75,255,0.025), transparent 24%),
+    linear-gradient(180deg, #fcfdff 0%, #f5f7fb 38%, #edf2f7 100%);
   color: var(--text);
-  /* light-mode panel/nav/shadow tweaks */
-  /* refined light theme colors for improved contrast and polish */
-  /* Use solid white panels for maximum contrast and adjust text/muted for WCAG */
-  --panel: #ffffff;
-  --nav-bg: #ffffff;
-  --panel-strong: #f6f8fb;
+  --nav-bg: rgba(255, 255, 255, 0.88);
   --border-strong: rgba(7,10,18,0.08);
-  --shadow-soft: 0 10px 30px rgba(18,28,38,0.06);
-  --shadow-elevated: 0 20px 44px rgba(18,28,38,0.06);
+  --shadow-soft: 0 8px 22px rgba(18,28,38,0.05);
+  --shadow-elevated: 0 16px 36px rgba(18,28,38,0.06);
   --accent: #2f81ff; /* deeper blue for stronger contrast */
   --accent-2: #5b4bff;
   --text: #071827; /* very dark cyan/blue for highest readability */
